@@ -2,7 +2,7 @@
 ##### The server listens on port 4000 by default
 
 ### - REST API to upload file is http://localhost:4000/upload
- - Upload a text file in the form data
+ - Add a text file in the form data
   #### OR
 ### - Visit home page http://localhost:4000 to upload a file
 
