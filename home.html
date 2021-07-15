@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <style>
+      input {
+        width: 400px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      pre {
+        font-size: 19px;
+        font-weight: bold;
+      }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(function() {
+      $("#upload").change(function(event) {
+        event.preventDefault();
+        const url = 'http://localhost:4000/upload';
+        const fileField = document.getElementById("upload");
+        const file = fileField && fileField.files && fileField.files.length ? document.getElementById("upload").files[0] : null;
+        const result = document.getElementById('result');
+        if (result) result.innerText = '';
+        if (file) {
+          const form = new FormData();
+          form.append('file', file);
+          $.ajax({
+            url : url,
+            type : 'POST',
+            data : form,
+            processData: false,
+            contentType: false,
+            success : function(data) {
+                if (result) result.innerText = JSON.stringify(data, undefined, 4);
+            },
+            error: function(er) {
+              console.log(typeof er);
+              if (result) result.innerText = typeof er === 'object' ? JSON.stringify(er, undefined, 4) : er;
+            }
+          });
+        }
+      });
+  });
+  </script>
+  </head>
+  <body>
+    <h2>Words count</h2>
+    <label for="upload"><b>Upload file</b></label>
+    <input type="file" id="upload" name="upload" placeholder="" accept=".txt"><br>
+    <label>type: text, max size: 10MB</label> <br><br>
+    <hr>
+    <pre id="result"></pre>
+  </body>
+</html>
+
