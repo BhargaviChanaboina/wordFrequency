@@ -28,7 +28,7 @@ const cleanWord = (word) => {
 const validateFile = (file) => {
   if (!file) return { message: 'No file exists' };
   if (file.type !== 'text/plain') return { message: 'please choose a text file' };
-  if (file.size > 15000000) return { message: 'File size exceeded max limit. Max file size is 10MB' };
+  if (file.size > 10000000) return { message: 'File size exceeded max limit. Max file size is 10MB' };
 }
 
 app.post('/upload', (req, res) => {
