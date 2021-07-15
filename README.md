@@ -4,7 +4,7 @@
 ### - REST API to upload file is http://localhost:4000/upload
  - Upload a text file in the form data
   #### OR
-### - Go to home page http://localhost:4000 to upload a file
+### - Visit home page http://localhost:4000 to upload a file
 
 ![image](https://user-images.githubusercontent.com/36034208/125746671-664bc45a-c6f6-4159-9b8e-06b9370112e8.png)
 
