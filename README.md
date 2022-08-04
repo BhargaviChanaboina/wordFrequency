@@ -1,5 +1,5 @@
 ### - Run `npm start` to start the server
-##### The server listens on port 4000 by default 
+##### The server listens on port 4000 by default
 
 ### - REST API to upload file is http://localhost:4000/upload
  - Add a text file in the form data
